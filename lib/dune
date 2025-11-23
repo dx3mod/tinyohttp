@@ -1,2 +1,3 @@
 (library
- (public_name toyhttpserver))
+ (public_name toyhttpserver)
+ (libraries unix))

@@ -10,10 +10,7 @@ let parse_first_line line =
   | [ "POST"; path; "HTTP/1.1" ] -> (`POST, path)
   | _ -> failwith "failed parse first line"
 
-let parse_header_line line =
-  match String.split_on_char ':' line with
-  | [ key; value ] -> Some (key, value)
-  | _ -> None
+let parse_header_line = Lsplit.lsplit ':'
 
 let of_lines = function
   | first_line :: headers ->
